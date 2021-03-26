@@ -2,6 +2,9 @@
 
 on hosting github
 روي هاست گيت هاب
+لينك اجراي هاست
+https://mrroz.github.io//react_adminControl/
+
 ![Screenshot (20)](https://user-images.githubusercontent.com/75145283/112557897-299e4000-8deb-11eb-9cc8-2bb3b0b3e01a.png)
 
 
