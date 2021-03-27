@@ -1,7 +1,13 @@
 import React from 'react';
-
-import './App.css';
 import Person from './camponents/person/person';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {ToastContainer,toast} from 'react-toastify';
+import Button from 'react-bootstrap/Button';
+import { ArrowRight } from 'react-bootstrap-icons';
+
+import {Alert,Badge,Dropdown,ButtonGroup} from 'react-bootstrap'
+
 
 class App extends React.Component {
   
@@ -28,6 +34,11 @@ class App extends React.Component {
     this.setState({
       persons:filterPersons
     })
+    toast.error('شخص با موفقيت حذف شد',{
+      position:'bottom-right',
+      closeButton:true,
+      closeOnClick:true
+    })
   }
 
   addAdmin=()=>{
@@ -41,7 +52,12 @@ class App extends React.Component {
     newPerson.push(admin)
     this.setState({
       persons:newPerson,
-      person:""
+      person:"",
+    })
+    toast.success('شخص با موفقيت افزوده شد',{
+      position:'bottom-right',
+      closeButton:true,
+      closeOnClick:true
     })
   }
 
@@ -56,15 +72,29 @@ class App extends React.Component {
     const{persons}=this.state
 
     return (  
-      <div style={{textAlign:'center'}}>
-        <h2>{persons.length}  : تعداد اشخاص</h2>
-        <div className="add">
+      <div className="rtl text-center">
+        <Alert variant="primary">
 
-      <input value={this.state.person} onChange={this.setPerson} type="text" placeholder="نام ادمين وارد شود" style={{direction:'rtl'}} />
+            <h2>{persons.length}  : تعداد اشخاص</h2>
 
-      <button onClick={this.addAdmin} style={{color:'white',backgroundColor:'blue'}}>ثبت</button>
+        </Alert>
+
+        <div >
+          <Button  type="submit" variant="success" size="sm" onClick={this.addAdmin}>ثبت</Button>
+          
+          <input type="text" onChange={this.setPerson}  value={this.state.person} style={{direction:'rtl'}}  placeholder="نام ادمين وارد شود" />
+          <ToastContainer/>
 
         </div>
+
+        {/* <div  className="input-group-w-25" style={{width:"30%" ,textAlign:"center",}}>
+        <input  className="form-control" value={this.state.person} onChange={this.setPerson} type="text" placeholder="نام ادمين وارد شود" style={{direction:'rtl'}} />
+        </div>
+
+        <div className="input-group-prepend">
+        <Button  type="submit" variant="success " size="sm" onClick={this.addAdmin}>+</Button>
+        </div> */}
+
         <Person persons={persons} delete={this.deleteHandler}/>
       </div>
     )

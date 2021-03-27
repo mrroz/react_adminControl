@@ -4,7 +4,7 @@ const Person = (props) => {
 
   
     return ( 
-        <div style={{textAlign:'center'}}>
+        <div style={{textAlign:'center',  marginTop:"5%",}}>
             {
                 props.persons.map((item,index)=>(
                     console.log(index),
