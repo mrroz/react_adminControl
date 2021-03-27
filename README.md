@@ -5,6 +5,9 @@ on hosting github
 لينك اجراي هاست
 https://mrroz.github.io//react_adminControl/
 
+لينك نسخه نهايي
+https://github.com/mrroz/react_adminControl
+
 ![Screenshot (22)](https://user-images.githubusercontent.com/75145283/112709540-1b7a1d80-8ed8-11eb-981a-96ea2ccc5342.png)
 
 ![Screenshot (20)](https://user-images.githubusercontent.com/75145283/112557897-299e4000-8deb-11eb-9cc8-2bb3b0b3e01a.png)
