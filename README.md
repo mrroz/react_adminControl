@@ -3,7 +3,7 @@
 on hosting github
 روي هاست گيت هاب
 لينك اجراي هاست
-https://mrroz.github.io//react_adminControl/
+https://mrroz.github.io/react_adminControl/
 
 لينك نسخه نهايي
 https://github.com/mrroz/react_adminControl
