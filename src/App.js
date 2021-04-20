@@ -7,6 +7,9 @@ import Button from 'react-bootstrap/Button';
 import { ArrowRight } from 'react-bootstrap-icons';
 
 import {Alert,Badge,Dropdown,ButtonGroup} from 'react-bootstrap'
+import newPerson from './camponents/person/newPerson';
+import simpleContext from './simpleContextApi';
+import Handel from '../src/camponents/person/newPerson';
 
 
 class App extends React.Component {
@@ -18,15 +21,7 @@ class App extends React.Component {
 
   }
 
-  // deleteHandler=(id)=>{
 
-  //   const newPerson = [...this.state.persons]
-  //   newPerson.splice(id,1)
-  //   this.setState({
-  //     persons:newPerson
-  //   })
-
-  // }
 
   deleteHandler=(id)=>{
     const newPerson =  [...this.state.persons]
@@ -66,37 +61,42 @@ class App extends React.Component {
       person:Event.target.value
     })
   }
+
+ 
    
   
   render() { 
     const{persons}=this.state
 
+
     return (  
-      <div className="rtl text-center">
+
+      <simpleContext.Provider
+      value={{
+        state:this.state,
+        addAdmin:this.addAdmin,
+        setPerson:this.setPerson,
+        deleteHandler:this.deleteHandler
+
+      }}
+      >
+
+<div className="rtl text-center">
         <Alert variant="primary">
 
-            <h2>{persons.length}  : تعداد اشخاص</h2>
+            <h6> <span class="badge badge-pill badge-danger"> {persons.length}</span>     : تعداد اشخاص</h6>
 
         </Alert>
 
-        <div >
-          <Button  type="submit" variant="success" size="sm" onClick={this.addAdmin}>ثبت</Button>
-          
-          <input type="text" onChange={this.setPerson}  value={this.state.person} style={{direction:'rtl'}}  placeholder="نام ادمين وارد شود" />
-          <ToastContainer/>
+        <Handel/>
 
-        </div>
 
-        {/* <div  className="input-group-w-25" style={{width:"30%" ,textAlign:"center",}}>
-        <input  className="form-control" value={this.state.person} onChange={this.setPerson} type="text" placeholder="نام ادمين وارد شود" style={{direction:'rtl'}} />
-        </div>
-
-        <div className="input-group-prepend">
-        <Button  type="submit" variant="success " size="sm" onClick={this.addAdmin}>+</Button>
-        </div> */}
+    
 
         <Person persons={persons} delete={this.deleteHandler}/>
       </div>
+      </simpleContext.Provider>
+
     )
   }
 }

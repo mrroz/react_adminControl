@@ -21,9 +21,13 @@ const Sub = (props) => {
         <div style={styleDiv} className="input-group-prepend">
             <Alert variant="success">
             <h7>{`نام :${props.name}`}</h7>
-
             </Alert>
+            
+            <div className="input-group-prepend">
             <Button style={{height:"38px"}} variant="danger" size="sm" onClick={props.delete}>حذف</Button>
+
+            </div>
+            
 
 
         </div>
